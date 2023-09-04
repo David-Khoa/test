@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css" />
+    <link rel="stylesheet" href="test.js" />
+  </head>
+  <body>
+    <div class="skill">
+      <h3 class="skill-title">Skill 1</h3>
+      <div class="skill-info" style="display: none">
+        <p>Information about Skill 1</p>
+      </div>
+      <button class="view-more">View More</button>
+    </div>
+
+    <div class="skill">
+      <h3 class="skill-title">Skill 2</h3>
+      <div class="skill-info" style="display: none">
+        <p>Information about Skill 2</p>
+      </div>
+      <button class="view-more">View More</button>
+    </div>
+  </body>
+  <script>
+    const skills = document.querySelectorAll(".skill");
+
+    skills.forEach((skill) => {
+      const title = skill.querySelector(".skill-title");
+      const info = skill.querySelector(".skill-info");
+      const viewMore = skill.querySelector(".view-more");
+
+      viewMore.addEventListener("click", () => {
+        if (info.style.display === "none") {
+          info.style.display = "block";
+          viewMore.textContent = "View Less";
+        } else {
+          info.style.display = "none";
+          viewMore.textContent = "View More";
+        }
+      });
+    });
+  </script>
+  <style>
+    .skill-info {
+      display: none;
+    }
+
+    .skill:hover .view-more {
+      display: block;
+    }
+
+    .view-more {
+      display: none;
+    }
+  </style>
+</html>
